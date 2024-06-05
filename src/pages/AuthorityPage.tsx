@@ -51,7 +51,7 @@ export default function AuthorityPage() {
           data.email.toLowerCase().includes(searchText.toLowerCase())
       )
     );
-  }, []);
+  }, [userData, searchText]);
 
   const handleRegisterAuthority = useMutation(registerAdmin, {
     onSuccess: () => {

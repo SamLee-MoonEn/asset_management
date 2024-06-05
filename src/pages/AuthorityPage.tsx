@@ -20,7 +20,7 @@ export default function AuthorityPage() {
   const [adminList, setAdminList] = useState<string[]>([]);
   const [modalData, setModalData] = useState<userType>();
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
-  const [onlyAdmin, setOnlyAdmin] = useState(false);
+  const [, setOnlyAdmin] = useState(false);
   const showModalRef = useRef<HTMLInputElement>(null);
 
   const queryClient = useQueryClient();

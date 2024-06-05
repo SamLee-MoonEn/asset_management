@@ -16,11 +16,9 @@ export default function UserTableRow({
     >
       <td>{user.name}</td>
       <td>{user.email}</td>
-      <div className="flex items-center justify-center h-[45px]">
-        <td className={isManager ? "badge badge-accent" : ""}>
-          {isManager ? `관리자` : ``}
-        </td>
-      </div>
+      <td className={`h-[45px] ${isManager ? " badge badge-accent" : ""}`}>
+        {isManager ? `관리자` : ``}
+      </td>
     </tr>
   );
 }

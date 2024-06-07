@@ -33,6 +33,22 @@ export default function SearchModal({
             <p className="py-2">{modalData?.status ? "보유" : "대여"}</p>
             <div className="divider text-gray-400">재고</div>
             <p className="py-2">{modalData?.stock}</p>
+            <div className="flex w-full justify-between">
+              <div
+                className={`btn text-white bg-light hover:bg-main w-5/12 ${
+                  modalData?.status ? "" : "btn-disabled"
+                }`}
+              >
+                대여
+              </div>
+              <div
+                className={`btn text-white w-5/12 btn-error ${
+                  modalData?.status ? "btn-disabled" : ""
+                }`}
+              >
+                반납
+              </div>
+            </div>
           </div>
         </div>
       </div>

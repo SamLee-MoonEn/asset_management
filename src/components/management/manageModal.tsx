@@ -33,7 +33,7 @@ export default function manageModal({
 
   return (
     <div className="modal" role="dialog">
-      <div className="modal-box w-7/12 max-w-4xl">
+      <div className="modal-box w-7/12 max-w-5xl">
         <h3 className="text-2xl font-bold mb-4">{modalData?.itemName}</h3>
         <div className="flex">
           <div className="avatar">
@@ -46,27 +46,60 @@ export default function manageModal({
             </div>
           </div>
           <div className="flex flex-col items-center justify-center ml-4 w-full">
-            <div className="divider text-gray-400">Item Code</div>
-            <p className="py-2">{modalData?.itemCode}</p>
-            <div className="divider text-gray-400">Item Name</div>
-            <p className="py-2">{modalData?.itemName}</p>
-            <div className="divider text-gray-400">Specification</div>
-            <p className="py-2">{modalData?.specification}</p>
-            <div className="divider text-gray-400">Serial</div>
-            <p className="py-2">{modalData?.serial}</p>
-            <div className="divider text-gray-400">Status</div>
-            <p className="py-2">{modalData?.status ? "보유" : "대여"}</p>
-            <div className="divider text-gray-400">재고</div>
-            <div className="flex items-center">
-              <button className="btn" onClick={decreaseStockValue}>
-                {" "}
-                {"<"}{" "}
-              </button>
-              <p className="py-2 mx-10">{stockValue}</p>
-              <button className="btn" onClick={increaseStockValue}>
-                {" "}
-                {">"}{" "}
-              </button>
+            <div className="stats shadow w-full">
+              <div className="stats stats-vertical shadow">
+                <div className="stat place-items-center">
+                  <div className="stat-title">Item Code</div>
+                  <div className="stat-value">{modalData?.itemCode}</div>
+                </div>
+                <div className="stat place-items-center">
+                  <div className="stat-title">Item Name</div>
+                  <div className="stat-value">{modalData?.itemName}</div>
+                </div>
+                <div className="stat place-items-center">
+                  <div className="stat-title">Specification</div>
+                  <div className="stat-desc">{modalData?.specification}</div>
+                </div>
+                <div className="stat place-items-center">
+                  <div className="stat-title">Serial</div>
+                  <div className="stat-value">{modalData?.serial}</div>
+                </div>
+                <div className="stat place-items-center">
+                  <div className="stat-title">보관 위치</div>
+                  <div className="stat-value">{}</div>
+                </div>
+              </div>
+              <div className="stats stats-vertical shadow">
+                <div className="stat place-items-center">
+                  <div className="stat-title">Status</div>
+                  <div className="stat-value">
+                    {modalData?.status ? "보유" : "대여"}
+                  </div>
+                </div>
+                <div className="stat place-items-center">
+                  <div className="stat-title">대여자</div>
+                  <div className="stat-value">{}</div>
+                </div>
+                <div className="stat place-items-center">
+                  <div className="stat-title">대여 날짜</div>
+                  <div className="stat-value">{}</div>
+                </div>
+                <div className="stat place-items-center">
+                  <div className="stat-title">Stock</div>
+                  <div className="stat-value flex">
+                    {" "}
+                    <button className="btn" onClick={decreaseStockValue}>
+                      {" "}
+                      {"<"}{" "}
+                    </button>
+                    <p className="py-2 mx-10">{stockValue}</p>
+                    <button className="btn" onClick={increaseStockValue}>
+                      {" "}
+                      {">"}{" "}
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

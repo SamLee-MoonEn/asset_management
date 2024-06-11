@@ -10,7 +10,7 @@ export default function SearchTableRow({
 }) {
   return (
     <tr
-      className="hover:bg-slate-500 hover:text-white transition-all text-center"
+      className="hover:bg-slate-500 hover:text-white transition-all text-center text-xs"
       onClick={() => showModal(item)}
     >
       <td>
@@ -27,7 +27,10 @@ export default function SearchTableRow({
       <td>{item.itemName}</td>
       <td>{item.specification}</td>
       <td>{item.serial}</td>
+      <td></td>
       <td>{item.status ? "보유" : "대여"}</td>
+      <td></td>
+      <td></td>
       <td>{item.stock}</td>
     </tr>
   );

@@ -19,7 +19,10 @@ export default function SearchTable({
             <th>Item Name</th>
             <th>Specification</th>
             <th>Serial</th>
+            <th>보관 위치</th>
             <th>Status</th>
+            <th>대여자</th>
+            <th>대여 날짜</th>
             <th>Stock</th>
           </tr>
         </thead>

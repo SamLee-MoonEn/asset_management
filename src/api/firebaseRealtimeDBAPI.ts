@@ -158,3 +158,26 @@ export const getAssetsData = async () => {
     alert("자산 불러오기에 실패하였습니다. 새로고침해주세요.");
   }
 };
+
+// 대여, 반납
+export const rentalReturn = async (data: assetsDataType) => {
+  try {
+    const itemId = data.serial
+      ? `${data.itemCode}-${data.serial}`
+      : data.itemCode;
+    const updates: any = {};
+    updates[`assets/${itemId}`] = {
+      itemCode: data.itemCode,
+      itemName: data.itemName,
+      specification: data.specification,
+      serial: data.serial,
+      stock: data.stock,
+      status: data.status ? false : true,
+      itemImage: data.itemImage,
+    };
+    update(ref(firebasedb), updates);
+    console.log(`[Success] rentalReturn ${new Date()}: 완료`);
+  } catch (error) {
+    console.log(`[Error] rentalReturn ${new Date()}: 실패`);
+  }
+};

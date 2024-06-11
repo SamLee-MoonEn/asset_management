@@ -1,11 +1,22 @@
 import { assetsDataType } from "../../interface/Interface";
 import NullImage from "../../assets/kohyoung_icon.png";
+import { UseMutateFunction } from "react-query";
+import { RefObject } from "react";
 
 export default function SearchModal({
   modalData,
+  rentalReturn,
+  closeModalRef,
 }: {
   modalData: assetsDataType | undefined;
+  rentalReturn: UseMutateFunction<void, unknown, assetsDataType, unknown>;
+  closeModalRef: RefObject<HTMLInputElement>;
 }) {
+  const handleRentalReturn = () => {
+    if (modalData) rentalReturn(modalData);
+    if (closeModalRef.current) closeModalRef.current.checked = false;
+  };
+
   return (
     <div className="modal" role="dialog">
       <div className="modal-box w-7/12 max-w-4xl">
@@ -45,6 +56,7 @@ export default function SearchModal({
                 className={`btn text-white w-5/12 btn-error ${
                   modalData?.status ? "btn-disabled" : ""
                 }`}
+                onClick={handleRentalReturn}
               >
                 반납
               </div>

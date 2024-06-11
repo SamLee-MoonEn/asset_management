@@ -1,11 +1,12 @@
 import { useEffect, useState, useRef } from "react";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 
 import SearchTable from "../components/search/searchTable";
 import SearchBar from "../components/search/searchBar";
 
 import { assetsDataType } from "../interface/Interface";
 import SearchModal from "../components/search/searchModal";
-import { getAssetsData } from "../api/firebaseRealtimeDBAPI";
+import { getAssetsData, rentalReturn } from "../api/firebaseRealtimeDBAPI";
 
 export default function SearchPage() {
   const [searchText, setSearchText] = useState("");
@@ -15,26 +16,27 @@ export default function SearchPage() {
   const [isNotRental, setisNotRental] = useState(false);
   const showModalRef = useRef<HTMLInputElement>(null);
 
+  const queryClient = useQueryClient();
+
   const showModal = (showModalData: assetsDataType) => {
     if (showModalRef.current) showModalRef.current.checked = true;
     setModalData(showModalData);
   };
 
-  const getAssetsDataFromDB = async () => {
-    try {
-      const data: assetsDataType[] | undefined = await getAssetsData();
-      if (data) {
-        setRawAssetsData(data);
-      }
-    } catch (error) {
+  const {} = useQuery("getAssetsData", getAssetsData, {
+    onSuccess: (data) => {
+      if (data) setRawAssetsData(data);
+    },
+    onError: (error) => {
       console.log(`[Error] getAssetsDataFromDB ${new Date()}: ${error}`);
-    }
-  };
+    },
+  });
 
-  // 데이터를 받아오는 함수를 컴포넌트가 마운트 될 때 한 번만 실행하도록 함.
-  useEffect(() => {
-    getAssetsDataFromDB();
-  }, []);
+  const handleRentalReturn = useMutation(rentalReturn, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("getAssetsData");
+    },
+  });
 
   useEffect(() => {
     const filteredTestData = rawAssetsData.filter(
@@ -71,7 +73,11 @@ export default function SearchPage() {
           className="modal-toggle"
           ref={showModalRef}
         />
-        <SearchModal modalData={modalData} />
+        <SearchModal
+          modalData={modalData}
+          rentalReturn={handleRentalReturn.mutate}
+          closeModalRef={showModalRef}
+        />
       </div>
     </>
   );

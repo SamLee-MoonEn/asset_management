@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 
 import {
   getAdminList,
@@ -11,7 +12,6 @@ import SearchBar from "../components/search/searchBar";
 
 import { userType } from "../interface/Interface";
 import AuthorityModal from "../components/authority/authorityModal";
-import { useMutation, useQuery, useQueryClient } from "react-query";
 
 export default function AuthorityPage() {
   const [searchText, setSearchText] = useState("");

@@ -136,6 +136,9 @@ export const creatAsset = async (data: assetUpdateProps) => {
       stock: data.stock,
       status: true,
       itemImage: data.itemImage,
+      storage: data.storage,
+      renter: "",
+      rentDate: "",
     };
     update(ref(firebasedb), updates);
     console.log(`[Success] creatAsset ${new Date()}: 자산 등록 완료`);

@@ -30,6 +30,9 @@ export interface assetsDataType {
   readonly serial: string | null;
   readonly status: boolean;
   stock: number;
+  readonly storage: string;
+  readonly renter: string;
+  readonly rentDate: string;
 }
 
 export interface userType {
@@ -45,4 +48,5 @@ export interface assetUpdateProps {
   readonly serial: string | null;
   readonly stock: number;
   readonly itemImage: string;
+  readonly storage: string;
 }

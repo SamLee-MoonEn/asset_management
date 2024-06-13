@@ -27,10 +27,10 @@ export default function ManageTableRow({
       <td>{item.itemName}</td>
       <td>{item.specification}</td>
       <td>{item.serial}</td>
-      <td></td>
+      <td>{item.storage}</td>
       <td>{item.status ? "보유" : "대여"}</td>
-      <td></td>
-      <td></td>
+      <td>{item.renter}</td>
+      <td>{item.rentDate}</td>
       <td>{item.stock}</td>
     </tr>
   );

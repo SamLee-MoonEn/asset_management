@@ -19,7 +19,7 @@ export default function SearchModal({
 
   return (
     <div className="modal" role="dialog">
-      <div className="modal-box w-7/12 max-w-4xl">
+      <div className="modal-box w-7/12 max-w-5xl">
         <h3 className="text-2xl font-bold mb-4">{modalData?.itemName}</h3>
         <div className="flex">
           <div className="avatar">
@@ -32,47 +32,63 @@ export default function SearchModal({
             </div>
           </div>
           <div className="flex flex-col items-center justify-center ml-4 w-full">
-            <div className="stats shadow w-full">
+            <div className="stats shadow-lg w-full mb-4">
               <div className="stats stats-vertical shadow">
                 <div className="stat place-items-center">
                   <div className="stat-title">Item Code</div>
-                  <div className="stat-value">{modalData?.itemCode}</div>
+                  <div className="stat-desc text-xl text-black">
+                    {modalData?.itemCode}
+                  </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">Item Name</div>
-                  <div className="stat-value">{modalData?.itemName}</div>
+                  <div className="stat-desc text-xl text-black">
+                    {modalData?.itemName}
+                  </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">Specification</div>
-                  <div className="stat-desc">{modalData?.specification}</div>
+                  <div className="stat-desc text-xl text-black">
+                    {modalData?.specification}
+                  </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">Serial</div>
-                  <div className="stat-value">{modalData?.serial}</div>
+                  <div className="stat-desc text-xl text-black">
+                    {modalData?.serial}
+                  </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">보관 위치</div>
-                  <div className="stat-value">{}</div>
+                  <div className="stat-desc text-xl text-black">
+                    {modalData?.storage}
+                  </div>
                 </div>
               </div>
               <div className="stats stats-vertical shadow">
                 <div className="stat place-items-center">
                   <div className="stat-title">Status</div>
-                  <div className="stat-value">
+                  <div className="stat-desc text-xl text-black">
                     {modalData?.status ? "보유" : "대여"}
                   </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">대여자</div>
-                  <div className="stat-value">{}</div>
+                  <div className="stat-desc text-xl text-black">
+                    {modalData?.renter}
+                  </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">대여 날짜</div>
-                  <div className="stat-value">{}</div>
+                  <div className="stat-desc text-xl text-black">
+                    {modalData?.rentDate}
+                  </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">Stock</div>
-                  <div className="stat-value">{modalData?.stock}</div>
+                  <div className="stat-desc text-xl text-black">
+                    {modalData?.stock}
+                  </div>
                 </div>
               </div>
             </div>

@@ -50,43 +50,57 @@ export default function manageModal({
               <div className="stats stats-vertical shadow">
                 <div className="stat place-items-center">
                   <div className="stat-title">Item Code</div>
-                  <div className="stat-value">{modalData?.itemCode}</div>
+                  <div className="stat-desc text-xl text-black">
+                    {modalData?.itemCode}
+                  </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">Item Name</div>
-                  <div className="stat-value">{modalData?.itemName}</div>
+                  <div className="stat-desc text-xl text-black">
+                    {modalData?.itemName}
+                  </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">Specification</div>
-                  <div className="stat-desc">{modalData?.specification}</div>
+                  <div className="stat-desc text-xl text-black">
+                    {modalData?.specification}
+                  </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">Serial</div>
-                  <div className="stat-value">{modalData?.serial}</div>
+                  <div className="stat-desc text-xl text-black">
+                    {modalData?.serial}
+                  </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">보관 위치</div>
-                  <div className="stat-value">{}</div>
+                  <div className="stat-desc text-xl text-black">
+                    {modalData?.storage}
+                  </div>
                 </div>
               </div>
               <div className="stats stats-vertical shadow">
                 <div className="stat place-items-center">
                   <div className="stat-title">Status</div>
-                  <div className="stat-value">
+                  <div className="stat-desc text-xl text-black">
                     {modalData?.status ? "보유" : "대여"}
                   </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">대여자</div>
-                  <div className="stat-value">{}</div>
+                  <div className="stat-desc text-xl text-black">
+                    {modalData?.renter}
+                  </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">대여 날짜</div>
-                  <div className="stat-value">{}</div>
+                  <div className="stat-desc text-xl text-black">
+                    {modalData?.rentDate}
+                  </div>
                 </div>
                 <div className="stat place-items-center">
                   <div className="stat-title">Stock</div>
-                  <div className="stat-value flex">
+                  <div className="stat-actions text-xl text-black flex">
                     {" "}
                     <button className="btn" onClick={decreaseStockValue}>
                       {" "}

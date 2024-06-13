@@ -74,7 +74,7 @@ export default function AssetRegisterModal({
           className="w-full flex items-center"
           onSubmit={handleSubmit(onSubmitAssetData)}
         >
-          <div className="mb-4">
+          <div className="mb-4 w-1/2">
             {imageUrl ? (
               <img src={imageUrl}></img>
             ) : (

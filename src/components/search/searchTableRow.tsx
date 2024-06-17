@@ -23,15 +23,15 @@ export default function SearchTableRow({
           </div>
         </div>
       </td>
-      <td>{item.itemCode}</td>
-      <td>{item.itemName}</td>
-      <td>{item.specification}</td>
-      <td>{item.serial}</td>
-      <td>{item.storage}</td>
-      <td>{item.status ? "보유" : "대여"}</td>
-      <td>{item.renter}</td>
-      <td>{item.rentDate}</td>
-      <td>{item.stock}</td>
+      <td className="p-1">{item.itemCode}</td>
+      <td className="p-1">{item.itemName}</td>
+      <td className="p-1 w-72">{item.specification}</td>
+      <td className="p-1">{item.serial}</td>
+      <td className="p-1">{item.storage}</td>
+      <td className="p-1">{item.status ? "보유" : "대여"}</td>
+      <td className="p-1">{item.renter}</td>
+      <td className="p-1">{item.rentDate}</td>
+      <td className="p-1">{item.stock}</td>
     </tr>
   );
 }

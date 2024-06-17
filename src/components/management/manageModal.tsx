@@ -46,7 +46,7 @@ export default function manageModal({
             </div>
           </div>
           <div className="flex flex-col items-center justify-center ml-4 w-full">
-            <div className="stats shadow w-full">
+            <div className="grid grid-cols-2 shadow w-full">
               <div className="stats stats-vertical shadow">
                 <div className="stat place-items-center">
                   <div className="stat-title">Item Code</div>
@@ -60,7 +60,7 @@ export default function manageModal({
                     {modalData?.itemName}
                   </div>
                 </div>
-                <div className="stat place-items-center">
+                <div className="stat place-items-center overflow-auto">
                   <div className="stat-title">Specification</div>
                   <div className="stat-desc text-xl text-black">
                     {modalData?.specification}

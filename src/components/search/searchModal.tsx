@@ -32,7 +32,7 @@ export default function SearchModal({
             </div>
           </div>
           <div className="flex flex-col items-center justify-center ml-4 w-full">
-            <div className="stats shadow-lg w-full mb-4">
+            <div className="grid grid-cols-2 shadow-lg mb-4 ">
               <div className="stats stats-vertical shadow">
                 <div className="stat place-items-center">
                   <div className="stat-title">Item Code</div>
@@ -46,9 +46,9 @@ export default function SearchModal({
                     {modalData?.itemName}
                   </div>
                 </div>
-                <div className="stat place-items-center">
+                <div className="stat place-items-center w-full overflow-auto out-of-range:text-xs">
                   <div className="stat-title">Specification</div>
-                  <div className="stat-desc text-xl text-black">
+                  <div className="stat-desc text-xl text-black ">
                     {modalData?.specification}
                   </div>
                 </div>
@@ -92,24 +92,25 @@ export default function SearchModal({
                 </div>
               </div>
             </div>
-            <div className="flex w-full justify-between">
-              <div
-                className={`btn text-white bg-light hover:bg-main w-5/12 ${
-                  modalData?.status ? "" : "btn-disabled"
-                }`}
-                onClick={handleRentalReturn}
-              >
-                대여
-              </div>
-              <div
-                className={`btn text-white w-5/12 btn-error ${
-                  modalData?.status ? "btn-disabled" : ""
-                }`}
-                onClick={handleRentalReturn}
-              >
-                반납
-              </div>
-            </div>
+          </div>
+        </div>
+        <div className="divider text-gray-400"></div>
+        <div className="w-1/2 flex justify-between mt-4 ml-auto">
+          <div
+            className={`btn text-white bg-light hover:bg-main w-5/12 ${
+              modalData?.status ? "" : "btn-disabled"
+            }`}
+            onClick={handleRentalReturn}
+          >
+            대여
+          </div>
+          <div
+            className={`btn text-white w-5/12 btn-error ${
+              modalData?.status ? "btn-disabled" : ""
+            }`}
+            onClick={handleRentalReturn}
+          >
+            반납
           </div>
         </div>
       </div>

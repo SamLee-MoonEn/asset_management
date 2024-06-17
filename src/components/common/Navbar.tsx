@@ -60,7 +60,7 @@ export default function Navbar() {
                 }`
               }
             >
-              <span>권한 관리</span>
+              <span>관리자 메뉴</span>
             </NavLink>
           )}
         </div>
